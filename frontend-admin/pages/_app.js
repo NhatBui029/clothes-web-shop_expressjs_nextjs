@@ -4,6 +4,7 @@ import Script from 'next/script'
 import { useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { Provider } from 'react-redux'
+import '../scss/App.scss'
 
 import store from '../store/store'
 import Head from 'next/head'

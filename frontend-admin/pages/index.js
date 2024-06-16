@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 
+
 import Header from '../components/Header'
 
 export default function HomePage() {

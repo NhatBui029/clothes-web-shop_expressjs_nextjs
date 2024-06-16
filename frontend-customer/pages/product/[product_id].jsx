@@ -46,6 +46,7 @@ const ProductDetailPage = () => {
 	const [productVariantId, setProductVariantId] = useState('')
 	const [inventory, setInventory] = useState(0)
 	const [quantity, setQuantity] = useState(1)
+	const [countInStock, setCountInStock] = useState(0)
 	const [price, setPrice] = useState('0')
 	const [product_image, setProduct_Image] = useState([]);
 
@@ -114,6 +115,7 @@ const ProductDetailPage = () => {
 				setInventory(respond.data.quantity)
 				setPrice(respond.data.price)
 				setProduct_Image(respond.data.product_images);
+				// setCountInStock(respond.data.quantity)
 			} catch (error) {
 				console.log(error);
 				setProduct_Image(fake_product_image);
@@ -163,7 +165,8 @@ const ProductDetailPage = () => {
 							<Rate disabled allowHalf value={rating} />
 							<h6 className='d-inline-block'>({feedbackQuantity})</h6>
 						</span>
-						<span style={{ margin: "2px 0 0" }}>Đã bán (web): {sold}</span>
+						<span style={{ margin: "2px 10px 0" }}>Đã bán (web): {sold}</span>
+						<span style={{ margin: "2px 0 0" }}>Kho (web): {inventory}</span>
 					</div>
 					<div className="price-box">
 						<span>{formatPrice(price)}đ</span>

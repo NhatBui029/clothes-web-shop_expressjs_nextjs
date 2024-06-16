@@ -152,7 +152,6 @@ let listCustomerSide = async (req, res, next) => {
                 [Order_Status_Change_History, 'created_at', 'DESC']
             ]
         });
-        console.log('orderlisst 1: ', orderList)
 
         orderList = await Promise.all(orderList.map(async (order) => {
             // Lấy danh sách sản phẩm của đơn hàng
@@ -200,7 +199,6 @@ let listCustomerSide = async (req, res, next) => {
             }
             return orderConverted;
         }));
-        console.log('orderlisst 2: ', orderList)
 
         return res.send(orderList);
     } catch (err) {

@@ -13,9 +13,9 @@ const Feedback = require('../models/feedback');
 const Order_Status_Change_History = require('../models/order_status_change_history');
 
 const config = {
-    app_id: "2553",
-    key1: "PcY4iZIKFCIdgZvA6ueMcMHHUbRLYjPL",
-    key2: "kLtgPl8HHhfvMuDHPwKfgfsY4Ydm9eIz",
+    app_id: "2554",
+    key1: "sdngKKJmqEMzvh5QQcdD2A9XBSKUNaYn",
+    key2: "trMrHtvjo6myautxDUiAcYsVtaeQ8nhf",
     endpoint: "https://sb-openapi.zalopay.vn/v2/create"
 };
 
@@ -44,12 +44,12 @@ let createPayment = async (req, res, next) => {
             amount: totalPrice,
             description: `ElevenT - Payment for the order #${transID}`,
             bank_code: "",
-            callback_url: "https://5d4d-27-72-28-125.ngrok-free.app/api/payment/callback"
+            callback_url: "https://c89f-27-72-28-125.ngrok-free.app/api/payment/callback"
         };
+
 
         const data = config.app_id + "|" + order.app_trans_id + "|" + order.app_user + "|" + order.amount + "|" + order.app_time + "|" + order.embed_data + "|" + order.item;
         order.mac = CryptoJS.HmacSHA256(data, config.key1).toString();
-
         const result = await axios.post(config.endpoint, null, { params: order });
         res.status(200).json(result.data.order_url)
 
